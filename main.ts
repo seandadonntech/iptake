@@ -7,15 +7,13 @@ var choice = prompt('Please choose an option\n');
 
 if (choice === "1") {
     console.log(`ip address is ${ip()}`);
+    
     break;
 } 
-
-
-
-
-
-
-else{
+else if (choice==="2"){
+console.log(`the ipv6 address is ${ipv6()}`);
+break;
+}else{
 console.log('invalid choice')
 
 }
