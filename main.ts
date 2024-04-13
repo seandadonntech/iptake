@@ -5,6 +5,7 @@ function sleep(seconds: number): Promise<void> {
     return new Promise(resolve => setTimeout(resolve, seconds * 1000));
 }
 
+main();
 async function main() {
     while (true) {
         try {
@@ -30,4 +31,3 @@ async function main() {
 }
 
 
-main();
