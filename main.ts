@@ -12,11 +12,11 @@ async function main() {
 
             if (choice === "1") {
                 console.log(`ip address is ${ip()}`);
-                await sleep(5);
+                await sleep(10);
                 break;
             } else if (choice === "2") {
                 console.log(`the ipv6 address is ${ipv6()}`);
-                await sleep(5);
+                await sleep(10);
                 break;
             } else if (choice === "3") {
                 // Call the mac() function asynchronously and handle the result
@@ -28,7 +28,7 @@ async function main() {
                         
                     }
                 });
-                await sleep(5); 
+                await sleep(10); 
                 break;
             } else {
                 console.log('invalid choice');
