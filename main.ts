@@ -1,7 +1,7 @@
 import { ip, ipv6, mac } from 'address';
 const prompt = require('prompt-sync')();
 
-function sleep(seconds: number): Promise<void> {
+function sleep(seconds: number): Promise<void> { // function for the time 
     return new Promise(resolve => setTimeout(resolve, seconds * 1000));
 }
 
@@ -25,8 +25,10 @@ async function main() {
                         console.error('An error occurred:', err);
                     } else {
                         console.log(`the MAC address is ${addr}`);
+                     
                         
                     }
+                  
                 });
                 await sleep(10); 
                 break;
@@ -38,5 +40,3 @@ async function main() {
         }
     }
 }
-
-main();

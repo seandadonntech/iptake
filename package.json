@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "address": "^2.0.2",
-    "prompt-sync": "^4.2.0"
+    "prompt-sync": "^4.2.0",
+    "systeminformation": "^5.22.8"
   }
 }
