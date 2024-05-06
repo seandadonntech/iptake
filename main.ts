@@ -1,5 +1,7 @@
 import { ip, ipv6, mac } from 'address';
 const prompt = require('prompt-sync')();
+import * as os from 'os';
+
 
 function sleep(seconds: number): Promise<void> { // function for the time 
     return new Promise(resolve => setTimeout(resolve, seconds * 1000));
