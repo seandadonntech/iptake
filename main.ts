@@ -1,12 +1,11 @@
 import { ip, ipv6, mac } from 'address';
 const prompt = require('prompt-sync')();
-import * as os from 'os';
 
 
 function sleep(seconds: number): Promise<void> { // function for the time 
     return new Promise(resolve => setTimeout(resolve, seconds * 1000));
 }
-
+main()
 async function main() {
     while (true) {
         try {
@@ -19,7 +18,7 @@ async function main() {
             } else if (choice === "2") {
                 console.log(`the ipv6 address is ${ipv6()}`);
                 await sleep(10);
-                break;
+                break;// statements must be broken
             } else if (choice === "3") {
                 // Call the mac() function asynchronously and handle the result
                 mac(function (err, addr) {
