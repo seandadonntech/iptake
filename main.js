@@ -42,7 +42,6 @@ var prompt = require('prompt-sync')();
 function sleep(seconds) {
     return new Promise(function (resolve) { return setTimeout(resolve, seconds * 1000); });
 }
-main();
 function main() {
     return __awaiter(this, void 0, void 0, function () {
         var _loop_1, state_1;
@@ -50,45 +49,33 @@ function main() {
             switch (_a.label) {
                 case 0:
                     _loop_1 = function () {
-                        var choice_1, err_1;
+                        var choice, ipv4Address_1, ipv6Address_1, err_1;
                         return __generator(this, function (_b) {
                             switch (_b.label) {
                                 case 0:
-                                    _b.trys.push([0, 8, , 9]);
-                                    choice_1 = prompt('Please choose an option\n');
-                                    if (!(choice_1 === "1")) return [3 /*break*/, 2];
-                                    console.log("ip address is ".concat((0, address_1.ip)()));
+                                    _b.trys.push([0, 10, , 11]);
+                                    choice = prompt('Please choose an option\n');
+                                    if (!(choice === "1")) return [3 /*break*/, 2];
+                                    console.log("IP address is ".concat((0, address_1.ip)()));
                                     return [4 /*yield*/, sleep(10)];
                                 case 1:
                                     _b.sent();
                                     return [2 /*return*/, "break"];
                                 case 2:
-                                    if (!(choice_1 === "2")) return [3 /*break*/, 4];
-                                    console.log("the ipv6 address is ".concat((0, address_1.ipv6)()));
+                                    if (!(choice === "2")) return [3 /*break*/, 4];
+                                    console.log("The IPv6 address is ".concat((0, address_1.ipv6)()));
                                     return [4 /*yield*/, sleep(10)];
                                 case 3:
                                     _b.sent();
                                     return [2 /*return*/, "break"];
                                 case 4:
-                                    if (!(choice_1 === "3")) return [3 /*break*/, 6];
+                                    if (!(choice === "3")) return [3 /*break*/, 6];
                                     (0, address_1.mac)(function (err, addr) {
                                         if (err) {
                                             console.error('An error occurred:', err);
                                         }
                                         else {
-                                            console.log("the MAC address is ".concat(addr));
-                                            if (choice_1 === "4") {
-                                                console.log('make a file of this machine  ipv4, ipv6, mac information');
-                                                fs_1.default.writeFile('ip.txt', "".concat(address_1.ip), function (error) {
-                                                    if (error) {
-                                                        console.error('Error writing IP address to file:', error);
-                                                    }
-                                                    else {
-                                                        console.log('IP address written to file successfully');
-                                                    }
-                                                });
-                                                //error handing below
-                                            }
+                                            console.log("The MAC address is ".concat(addr));
                                         }
                                     });
                                     return [4 /*yield*/, sleep(10)];
@@ -96,14 +83,39 @@ function main() {
                                     _b.sent();
                                     return [2 /*return*/, "break"];
                                 case 6:
-                                    console.log('invalid choice');
-                                    _b.label = 7;
-                                case 7: return [3 /*break*/, 9];
+                                    if (!(choice === "4")) return [3 /*break*/, 8];
+                                    ipv4Address_1 = (0, address_1.ip)();
+                                    ipv6Address_1 = (0, address_1.ipv6)();
+                                    (0, address_1.mac)(function (err, addr) {
+                                        if (err) {
+                                            console.error('An error occurred:', err);
+                                        }
+                                        else {
+                                            var macAddress = addr;
+                                            var fileContent = "IPv4: ".concat(ipv4Address_1, "\nIPv6: ").concat(ipv6Address_1, "\nMAC: ").concat(macAddress);
+                                            fs_1.default.writeFile('ip.txt', fileContent, function (error) {
+                                                if (error) {
+                                                    console.error('Error writing IP address to file:', error);
+                                                }
+                                                else {
+                                                    console.log('IP address information written to file successfully');
+                                                }
+                                            });
+                                        }
+                                    });
+                                    return [4 /*yield*/, sleep(10)];
+                                case 7:
+                                    _b.sent();
+                                    return [2 /*return*/, "break"];
                                 case 8:
+                                    console.log('Invalid choice');
+                                    _b.label = 9;
+                                case 9: return [3 /*break*/, 11];
+                                case 10:
                                     err_1 = _b.sent();
                                     console.error('An error occurred:', err_1);
-                                    return [3 /*break*/, 9];
-                                case 9: return [2 /*return*/];
+                                    return [3 /*break*/, 11];
+                                case 11: return [2 /*return*/];
                             }
                         });
                     };
@@ -121,3 +133,4 @@ function main() {
         });
     });
 }
+main();
