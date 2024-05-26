@@ -1,8 +1,9 @@
-import { ip, ipv6, mac } from 'address';
+import { ip, ipv6, mac,  } from 'address';
+import fs from 'fs';
 const prompt = require('prompt-sync')();
 
 
-function sleep(seconds: number): Promise<void> { // function for the time 
+function sleep(seconds: number): Promise<void> { // function for the time
     return new Promise(resolve => setTimeout(resolve, seconds * 1000));
 }
 main()
@@ -20,15 +21,24 @@ async function main() {
                 await sleep(10);
                 break;// statements must be broken
             } else if (choice === "3") {
-                // Call the mac() function asynchronously and handle the result
+                
                 mac(function (err, addr) {
                     if (err) {
                         console.error('An error occurred:', err);
                     } else {
                         console.log(`the MAC address is ${addr}`);
+                     if (choice === "4") {
+                    
+                    
+
+
+
+                     }
                      
-                        
                     }
+                
+             
+            
                   
                 });
                 await sleep(10); 
