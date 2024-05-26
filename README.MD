@@ -17,28 +17,20 @@ Before running this script, make sure you have [Node.js](https://nodejs.org/) in
 2. Navigate to the directory containing the cloned repository:
 
    ```bash
-   cd IPtake
+   cd your-repository
    ```
 
 3. Install dependencies using npm:
 
    ```bash
-   npm install -g typescript
+   npm install fs
 
-   npm install address
-
-   npm install prompt-sync
    ```
 
 ## Usage
 
 To run the script, execute the following command in your terminal:
-## COMPILE 
-```
- tsc main.ts
-this should compile to javascript   
-``` 
 
 ```bash
-node cli.js
+node main.js
 ```

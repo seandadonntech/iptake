@@ -1,4 +1,5 @@
-import { ip, ipv6, mac,  } from 'address';
+import { ip, ipv6, mac} from 'address';
+
 import fs from 'fs';
 const prompt = require('prompt-sync')();
 
@@ -28,7 +29,20 @@ async function main() {
                     } else {
                         console.log(`the MAC address is ${addr}`);
                      if (choice === "4") {
+                    console.log('make a file of this machine  ipv4, ipv6, mac information');
+                    fs.writeFile('ip.txt', `${ip}`, (error) => {
+                        if (error) {
+                          console.error('Error writing IP address to file:', error);
+                        } else {
+                          console.log('IP address written to file successfully');
+                        }
+                      });
                     
+                  
+                    //error handing below
+                   
+
+
                     
 
 
